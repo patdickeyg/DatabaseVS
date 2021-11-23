@@ -1,0 +1,80 @@
+
+npm start // run on client
+
+import './App.css';
+
+function App() {
+  return (
+    <div className="App">
+      <h1>CRUD APPLICATION
+
+        <div className="form">
+          <label>name:</label>
+        <input type="text" name="name"/>
+        <label>studentID:</label>
+        <input type="int" name="studentID"/>
+
+        <button>Submit</button>
+
+        </div>
+        </h1>
+      Hello
+    </div>
+  );
+}
+
+export default App;
+Backend:
+npm init  // create JSON file
+
+// create index.js file in server
+
+npm install express body-parser mysql nodemon
+
+// edit index.js file
+const express = require('express')
+const app = express()
+
+app.listen(3001, () => {
+    console.log("running on port 3001");
+});
+
+node index.js // run on server
+
+// add features to index.js
+app.get('/',(req, res) => { // passes route and parameters of function
+    res.send("Hello World")
+})
+
+// go to index.json
+  "scripts": {
+    "start": "node index.js", // first node
+    "devStart": "nodemon index.js:" , // run server through nodemon, auto update
+
+npm run devStart // now automatically updates server
+
+// Create Database in index.js
+const mysql = require('mysql')
+
+const db = mysql.createPool({
+    host: "localhost",
+    user: "root",
+    password: 'Bellybooboo21!',
+    database: 'cruddatabase',
+})
+
+// add query to app.get
+app.get('/',(req, res) => { // passes route and parameters of function
+    const sqlInsert = "INSERT INTO movie_reviews (movie, movieReview) VALUES ('inception', 'good movie');"
+
+    db.query(sqlInsert, (err, result) => {
+        res.send("Hello Pat")
+    })
+});
+
+
+host: "localhost",
+    user: "root",
+    password: 'password',
+    database: 'cruddatabase',
+
