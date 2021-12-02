@@ -59,7 +59,7 @@ const mysql = require('mysql')
 const db = mysql.createPool({
     host: "localhost",
     user: "root",
-    password: 'Bellybooboo21!',
+    password: 'password',
     database: 'cruddatabase',
 })
 
